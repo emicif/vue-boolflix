@@ -1,6 +1,6 @@
 <template>
   <div>
-    Header
+
   </div>
   
 </template>
@@ -8,9 +8,31 @@
 <script>
 export default {
   name: 'HeaderComponent',
-  props: {
-    msg: String
+    /*
+    data(){
+      return {
+        apiUrl: 'https://api.themoviedb.org/3/search/',
+        apiKey: '5125681fd07a81d9933e9268c5c370c3',
+        query: '',
+      }
+    },
+    methods: {
+      queryApi(){
+      const params = {
+        query: this.query,
+        api_key: this.apiKey,
+        language: 'it-IT'
+      }
+      axios.get(this.apiUrl + 'tv', {params}).then((response)=>{
+        console.log(response);
+      }).catch(error=>{
+        console.log(error);
+      })
+      }
+    // const query = 'verde';
+    
   }
+  */
 }
 </script>
 
