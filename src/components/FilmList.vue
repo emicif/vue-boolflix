@@ -7,10 +7,10 @@
            <img :src='urlImage + film.poster_path'>
             <h3>{{film.title}}</h3> 
             <h4>{{film.original_title}} </h4>
-            <p class="language">{{film.original_language}}</p>
+            <p class="p">{{film.original_language}}</p>
             <!-- <country-flag v-if="sendflag.includes(span2.toLowerCase())" :country='span2' size="small"/>
                 <span v-else>{{ span2 }}</span> -->
-                 <country-flag country= 'film.original_language' size='small'/>
+                 <country-flag :country= 'film.original_language' size='normal'/>
             <span>{{film.voto_average}}</span>
         </div>
     </div>
