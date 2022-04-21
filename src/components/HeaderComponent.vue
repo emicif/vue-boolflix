@@ -5,9 +5,7 @@
       <input type=text placeholder="Ricerca per titolo" v-model="textToSearch" />
       <button @click="search">Cerca</button>
 
-    </div>
-    
-  
+    </div> 
   </div>
   
 </template>
@@ -20,10 +18,7 @@ export default {
   name: 'HeaderComponent',
    data(){
     return {
-      
       textToSearch: '',
-    //  searching: false,
-
     }
   },
   methods:{

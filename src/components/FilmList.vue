@@ -4,14 +4,16 @@
     <div class="container">
          
         <div class="card" v-for="film in films" :key= film.id>
-           <img :src='urlImage + film.poster_path'>
+           <img v-if="film.poster_path != null" :src='urlImage + film.poster_path'>
+           <span v-else>Il film</span>
             <h3>{{film.title}}</h3> 
             <h4>{{film.original_title}} </h4>
             <p class="p">{{film.original_language}}</p>
             <!-- <country-flag v-if="sendflag.includes(span2.toLowerCase())" :country='span2' size="small"/>
                 <span v-else>{{ span2 }}</span> -->
-                 <country-flag :country= 'film.original_language' size='normal'/>
-            <span>{{film.voto_average}}</span>
+            <country-flag :country= 'film.original_language' size='normal'/>
+        
+            <p>{{film.vote_average}}</p>
         </div>
     </div>
 </div>
@@ -33,7 +35,7 @@ export default {
         return {
             urlImage: 'https://image.tmdb.org/t/p/w342'
         }
-    }
+    },
 }
 </script>
 

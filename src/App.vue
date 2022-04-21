@@ -18,6 +18,9 @@ export default {
     MainComponent,
   },
   methods: {
+     
+
+
       searching(textToSearch){
         console.log(textToSearch);
         const params = {
@@ -28,9 +31,13 @@ export default {
         axios.get(this.apiUrl + 'movie', {params} ).then((response)=>{
           console.log(response);
           if (response.status === 200){
+            //film
             this.films = response.data.results
+            console.log('this.films', this.films)
+            //serie
+            this.series = response.data.results
+            console.log('this.series', this.series)
           }
-
         }).catch(errore => console.log(errore))
       }
   },
@@ -39,7 +46,7 @@ export default {
       apiUrl: 'https://api.themoviedb.org/3/search/',
       apiKey: '5125681fd07a81d9933e9268c5c370c3',
       films: [],
-      //series: []
+      series: []
     }
 }
 
