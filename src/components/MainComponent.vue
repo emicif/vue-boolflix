@@ -1,6 +1,7 @@
 <template>
     <div>
       <FilmList :films="films" />
+      <SeriesList :series="series" />
     </div>
 </template>
 
@@ -8,15 +9,19 @@
 <script>
 
 import FilmList from './FilmList.vue'
+import SeriesList from './SerieList.vue'
 
 
 export default {
-  name: 'Main-component',
+  name: 'MainComponent',
   props: {
-    films: Array
+    films: Array,
+    series: Array
+ 
   },
   components: {
-    FilmList
+    FilmList,
+    SeriesList
   }
 }
 </script>

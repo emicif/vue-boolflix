@@ -4,15 +4,12 @@
     <div class="searchbar">
       <input type=text placeholder="Ricerca per titolo" v-model="textToSearch" />
       <button @click="search">Cerca</button>
-
     </div> 
   </div>
   
 </template>
 
 <script>
-
-
 
 export default {
   name: 'HeaderComponent',

@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-   <HeaderComponent @search= "searching" />
-   <MainComponent :films="films" />
+   <HeaderComponent @search= "search" />
+   <MainComponent :films="films" :series="series"/>
+   
   </div>
 </template>
 
@@ -18,28 +19,40 @@ export default {
     MainComponent,
   },
   methods: {
-     
 
-
-      searching(textToSearch){
-        console.log(textToSearch);
+      search(textToSearch){
+        console.log('searchType', textToSearch);
         const params = {
             query: textToSearch,
             api_key: this.apiKey,
             language: 'it-IT'
           } 
-        axios.get(this.apiUrl + 'movie', {params} ).then((response)=>{
-          console.log(response);
-          if (response.status === 200){
-            //film
-            this.films = response.data.results
+         
+        const promessa = axios.get(this.apiUrl + 'movie', {params} );
+
+        promessa.then((response)=>{
+          console.log(response)
+          if (response.status === 200) {
+            this.films = response.data.results;
             console.log('this.films', this.films)
-            //serie
-            this.series = response.data.results
+          }
+          }).catch(error => {
+            console.log(error);
+          });
+
+          axios.get(this.apiUrl + 'tv', {params} ).then((response)=>{
+          console.log(response)
+          if (response.status === 200) {
+            this.series = response.data.results;
             console.log('this.series', this.series)
           }
-        }).catch(errore => console.log(errore))
-      }
+          }).catch(error => {
+            console.log(error);
+          });
+        
+      },
+     
+  
   },
   data(){
     return {
@@ -49,7 +62,6 @@ export default {
       series: []
     }
 }
-
 }
 </script>
 
