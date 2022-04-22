@@ -15,8 +15,11 @@
             <!-- <country-flag v-if="sendflag.includes(span2.toLowerCase())" :country='span2' size="small"/>
                 <span v-else>{{ span2 }}</span> -->
             <country-flag :country= 'film.original_language' size='normal'/>
+        
             <p><font-awesome-icon v-for= "(star, index) in getYellowStar(film.vote_average)" :key="index" icon="fa-solid fa-star" class="yellow"/>
-           <!-- <font-awesome-icon v-for= "(star, index) in getWhiteStar(film.vote_average)" :key="index" icon="fa-solid fa-star" class="white"/></p> -->
+           <!-- <span><font-awesome-icon v-for= "(star, index) in getWhiteStar(film.vote_average)" :key="index" icon="fa-solid fa-star" class="white"/></span> -->
+
+       
  
             <p >{{film.vote_average}}</p>
         </div>   
@@ -59,7 +62,7 @@ export default {
     methods: {
         getYellowStar(voto){
             if (voto > 5){
-            
+           
             console.log('getYellowStar', (voto).toFixed())
             } else {
                  console.log('getWhiteStar', (voto).toFixed())
