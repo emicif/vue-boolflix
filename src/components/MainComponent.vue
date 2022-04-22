@@ -17,7 +17,6 @@ export default {
   props: {
     films: Array,
     series: Array
- 
   },
   components: {
     FilmList,
