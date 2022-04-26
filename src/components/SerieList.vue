@@ -13,6 +13,8 @@
             <!-- <country-flag v-if="sendflag.includes(span2.toLowerCase())" :country='span2' size="small"/>
                 <span v-else>{{ span2 }}</span> -->
             <country-flag :country= 'serie.original_language' size='normal'/>
+            <!-- <font-awesome-icon v-for= "n in getYellowStar(serie.vote_average)" :key="n" icon="fa-solid fa-star" class="yellow"/> -->
+
             <p>{{serie.vote_average}}</p>
         </div>
     </div>
@@ -23,21 +25,51 @@
 
 import CountryFlag from 'vue-country-flag'
 
+
+    // /* import the fontawesome core */
+    // import { library } from '@fortawesome/fontawesome-svg-core'
+
+    // /* import specific icons */
+    // import { faStar } from '@fortawesome/free-solid-svg-icons'
+
+    // /* import font awesome icon component */
+    // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+    // /* add icons to the library */
+    // library.add(faStar)
+
+
 export default {
     name: 'SerieList',
     props: {
         series: Array
     },
     components: {
-        CountryFlag
+        CountryFlag,
+       // FontAwesomeIcon
     },
     data() {
         return {
             urlImage: 'https://image.tmdb.org/t/p/w342'
         }
     },
+    /*
+    methods: {
+       getYellowStar(voto){
+          const votoDiviso = voto / 2; //arrotondare per eccesso
+          console.log('votoDiviso', votoDiviso)
+          return votoDiviso;
+          //console.log('getYellowStar', (voto).toFixed())
+        }
+    },
+    */
+    
 }
 </script>
+
+
+
+
 
 <style lang="scss" scoped>
 
@@ -62,6 +94,14 @@ h2 {
 
 img {
     width: 100%;
+}
+
+.yellow {
+    color: yellow;
+}
+.white {
+    color: white;
+    border: 1px solid black;
 }
 /*
 <div class="flex-wrap">
